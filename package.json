@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "dev:client": "npm run dev -w client",
-    "dev:server": "npm run start:dev -w server",
+    "dev:server": "NODE_ENV=development npm run start:dev -w server",
     "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\""
   },
   "repository": {
@@ -25,5 +25,8 @@
   "homepage": "https://github.com/kiyohiro0310/content-share#readme",
   "devDependencies": {
     "concurrently": "^9.2.1"
+  },
+  "dependencies": {
+    "@nestjs/config": "^4.0.3"
   }
 }
