@@ -24,10 +24,10 @@ export class ContentItemDTO {
   type: ContentType;
 
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   @MaxLength(512)
   @IsUrl()
-  url: string;
+  url?: string;
 
   @IsString()
   @MaxLength(512)

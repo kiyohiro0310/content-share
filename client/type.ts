@@ -61,6 +61,8 @@ export type StoreContentType = {
   type: string;
   url: string;
   image: string;
+  createdAt?: string;
+  updatedAt?: string;
 };
 
 export interface AddedCtxType {

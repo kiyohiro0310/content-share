@@ -18,7 +18,7 @@ function App() {
       <h1 className="text-4xl font-bold px-4 py-12">Share your favourite contents with my friends!</h1>
       <p>My 600+ friends can see your favourite music or video! Let's share it with them!</p>
       <div className="flex md:space-x-8">
-        <PlayList contents={addedContents} setPlayContent={setPlayContent} />
+        <PlayList contents={addedContents && addedContents} setPlayContent={setPlayContent} />
         <div className="lg:w-[45vw]">
           {mode == "Spotify" ? <SpotifySearch /> : <YouTubeSearch />}
           <div className="flex space-x-4 py-4">

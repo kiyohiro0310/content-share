@@ -8,13 +8,11 @@ const PlayList = ({
   contents: AddedContentType[];
   setPlayContent: Dispatch<SetStateAction<PlayContentType | undefined>>;
 }) => {
-  const today = new Date().toLocaleDateString("en-AU");
 
   return (
     <div className="px-4 h-screen lg:w-[20vw] border-r-[0.5px]">
       {contents.length == 0 && (
         <div>
-          <h1 className="font-bold text-xl pb-4">{today}</h1>
           <p>No Contents</p>
         </div>
       )}

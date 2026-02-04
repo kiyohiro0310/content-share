@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState, type ReactNode } from "react";
 import type { AddedContentType, AddedCtxType } from "../../type";
-import { REQ_URL } from "../utils/content";
+import { organizeContentByDate, REQ_URL } from "../utils/content";
 import axios from 'axios';
 
 const AddedContentsContext = createContext<AddedCtxType | undefined>(undefined);
@@ -11,6 +11,8 @@ export const AddedContentsProvider = ({ children }: { children: ReactNode }) => 
     async function getAllContent() {
       const response = await axios.get(REQ_URL);
       console.log(response);
+      const organizedData = organizeContentByDate(response.data);
+      setAddedContents(organizedData);
     }
     getAllContent();
   }, []);

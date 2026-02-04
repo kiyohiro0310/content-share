@@ -29,12 +29,14 @@ export class Content {
   @Column({
     type: 'varchar',
     length: 512,
+    nullable: true,
   })
   url: string;
 
   @Column({
     type: 'varchar',
     length: 512,
+    nullable: false,
   })
   image: string;
 
