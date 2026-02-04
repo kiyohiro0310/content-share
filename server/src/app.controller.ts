@@ -13,7 +13,6 @@ export class AppController {
 
   @Post()
   storeContent(@Body() req: ContentItemDTO) {
-    console.log();
     return this.appService.storeContent(req);
   }
 }
