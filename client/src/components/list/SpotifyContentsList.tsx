@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import type { SpotifyContentType } from "../../../type";
 import { useAddedContent } from "../../hooks/useAddedContent";
 import { storeContent } from "../../utils/content";
@@ -28,7 +29,9 @@ const SpotifyContentsList = ({ contents }: { contents: SpotifyContentType[] }) =
       ];
       setAddedContents(updatedContents);
     }
-    await storeContent({ name, image: img, url, type: "spotify" });
+
+    await storeContent({ name, image: img, url, type: "spotify", comments: [] });
+    toast.success(`Song: ${name} has been added into playlist.`);
   };
 
   return (

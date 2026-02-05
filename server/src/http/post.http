@@ -1,0 +1,10 @@
+POST http://localhost:3000/
+Content-Type: application/json
+
+{
+  "name": "Playing push game doraemon, pop it elektrik, push game challenge, asmr, #popit #toys",
+  "image": "https://i.ytimg.com/vi/5L45J6fQY5k/default.jpg",
+  "url": "https://www.youtube.com/watch?v=5L45J6fQY5k",
+  "type": "youtube",
+  "comments": []
+}

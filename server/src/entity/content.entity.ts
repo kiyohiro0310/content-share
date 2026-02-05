@@ -40,6 +40,12 @@ export class Content {
   })
   image: string;
 
+  @Column('jsonb', {
+    nullable: true,
+    default: [],
+  })
+  comments: { date: string; comment: string }[];
+
   @CreateDateColumn()
   createdAt: string;
 

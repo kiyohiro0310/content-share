@@ -52,6 +52,7 @@ export type AddedContentType = {
     type: string;
     url: string;
     image: string;
+    comments?: {date: string; comment: string}[];
   }[];
 };
 
@@ -61,6 +62,7 @@ export type StoreContentType = {
   type: string;
   url: string;
   image: string;
+  comments: {date: string, comment: string}[];
   createdAt?: string;
   updatedAt?: string;
 };
@@ -74,4 +76,5 @@ export type PlayContentType = {
   type: string;
   id?: string;
   url?: string;
+  comments?: { date: string; comment: string }[];
 };

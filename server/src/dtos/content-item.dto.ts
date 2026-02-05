@@ -1,4 +1,5 @@
 import {
+  IsArray,
   IsEnum,
   IsInt,
   IsNotEmpty,
@@ -33,4 +34,13 @@ export class ContentItemDTO {
   @MaxLength(512)
   @IsNotEmpty()
   image: string;
+
+  @IsOptional()
+  @IsArray()
+  comments: CommentDTO[];
+}
+
+class CommentDTO {
+  date: string;
+  comment: string;
 }

@@ -10,7 +10,6 @@ export const AddedContentsProvider = ({ children }: { children: ReactNode }) => 
   useEffect(() => {
     async function getAllContent() {
       const response = await axios.get(REQ_URL);
-      console.log(response);
       const organizedData = organizeContentByDate(response.data);
       setAddedContents(organizedData);
     }

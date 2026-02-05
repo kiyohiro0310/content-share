@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import type { YouTubeContentType } from "../../../type";
 import { useAddedContent } from "../../hooks/useAddedContent";
 import { storeContent } from "../../utils/content";
@@ -28,7 +29,14 @@ const YouTubeContentsList = ({ contents }: { contents: YouTubeContentType[] }) =
       ];
       setAddedContents(updatedContents);
     }
-    await storeContent({ name, image: img, url: `https://www.youtube.com/watch?v=${id}`, type: "youtube" });
+    await storeContent({
+      name,
+      image: img,
+      url: `https://www.youtube.com/watch?v=${id}`,
+      type: "youtube",
+      comments: [],
+    });
+    toast.success(`Video: ${name} has been added into playlist.`);
   };
   return (
     <div className="">

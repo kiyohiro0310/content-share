@@ -12,10 +12,7 @@ const SpotifyPlayer = ({ url }: { url: string }) => {
         allow="encrypted-media"
         loading="lazy"
       ></iframe>
-      <div className="">
-        <h1 className="py-2 font-bold text-xl">Comments</h1>
-        Comments for {id}
-      </div>
+      
     </div>
   );
 };
