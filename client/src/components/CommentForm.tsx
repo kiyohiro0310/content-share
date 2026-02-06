@@ -29,7 +29,7 @@ const CommentForm = ({
 
   return (
     <form onSubmit={submitHandler} className="flex space-x-4 w-full">
-      <input type="text" value={comment} onChange={changeHandler} className="w-full p-2 text-black dark:border-b-[0.5px] dark:border-b-white dark:text-white outline-none" />
+      <input type="text" value={comment} onChange={changeHandler} className="w-full p-2 text-black border-b-[0.5px] dark:border-b-white dark:text-white outline-none" />
       <button type="submit" className="px-8 py-2 bg-black text-green-500 font-bold rounded-lg hover:bg-green-500 hover:text-black transition-all duration-200 cursor-pointer">
         Post
       </button>

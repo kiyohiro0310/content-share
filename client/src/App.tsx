@@ -68,7 +68,7 @@ function App() {
                     <div className="space-y-4">
                       {playContent.comments.map((c) => (
                         <div className="flex justify-between items-end">
-                          <p>{c.comment}</p>
+                          <p className='w-64'>{c.comment}</p>
                           <span className="text-sm">{c.date}</span>
                         </div>
                       ))}

@@ -15,7 +15,7 @@ const PlayList = ({
         </div>
       )}
       {contents.map((content, i) => (
-        <div key={i} className='py-4'>
+        <div key={i} className="py-4">
           <h1 className="font-bold text-lg py-2">{content.date}</h1>
           <div className="">
             {content.items.map((item, j) => (
@@ -32,16 +32,15 @@ const PlayList = ({
                 }}
               >
                 <img className="w-12 h-12" src={item.image} alt={item.name} />
-                <div className='space-y-1'>
+                <div className="space-y-1">
                   <p>{item.name}</p>
-                  <p className='text-xs'>{item.type.charAt(0).toUpperCase() + item.type.slice(1)}</p>
+                  <p className="text-xs">{item.type.charAt(0).toUpperCase() + item.type.slice(1)}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       ))}
-
     </div>
   );
 };
