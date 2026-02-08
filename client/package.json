@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "@types/spotify-web-playback-sdk": "^0.1.19",
+    "@workos-inc/authkit-react": "^0.16.0",
     "axios": "^1.13.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

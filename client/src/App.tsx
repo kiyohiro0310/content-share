@@ -1,7 +1,4 @@
 import { useState } from "react";
-import SpotifySearch from "./components/search/SpotifySearch";
-import YouTubeSearch from "./components/search/YouTubeSearch";
-import ModeSelect from "./components/ui/ModeSelect";
 import PlayList from "./components/list/PlayList";
 import { useAddedContent } from "./hooks/useAddedContent";
 import type { PlayContentType } from "../type";
