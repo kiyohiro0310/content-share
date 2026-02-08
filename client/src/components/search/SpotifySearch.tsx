@@ -22,13 +22,13 @@ const SpotifySearch = () => {
 
   return (
     <div className="w-full">
-      <h1 className="text-xl font-bold">Search Spotify</h1>
       <form className="flex space-x-2 items-center">
         <input
           className="border-[0.5px] w-full h-10 rounded-md text-lg p-2 outline-none"
           type="text"
           onChange={handleSearch}
           value={input}
+          placeholder='Search Spotify'
         />
         {input && input.length > 0 && (
           <div

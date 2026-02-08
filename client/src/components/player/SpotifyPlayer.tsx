@@ -1,7 +1,6 @@
+
 const SpotifyPlayer = ({ url }: { url: string }) => {
-  const id = url.replace("https://open.spotify.com/track/", "");
   const embedUrl = url.replace("open.spotify.com", "open.spotify.com/embed");
-  console.log(`Store ${id} in database`);
   return (
     <div>
       <iframe

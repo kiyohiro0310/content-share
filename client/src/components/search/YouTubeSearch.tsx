@@ -21,14 +21,14 @@ const YouTubeSearch = () => {
   };
 
   return (
-    <div>
-      <h1 className="w-full text-xl font-bold">Search YouTube</h1>
+    <div className='w-full'>
       <form className="flex space-x-2 items-center">
         <input
           className="border-[0.5px] w-full h-10 rounded-md text-lg p-2 outline-none"
           type="text"
           onChange={handleSearch}
           value={input}
+          placeholder='Search YouTube'
         />
         {input && input.length > 0 && (
           <div

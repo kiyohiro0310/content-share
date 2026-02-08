@@ -10,6 +10,7 @@ import SpotifyPlayer from "./components/player/SpotifyPlayer";
 import CommentForm from "./components/CommentForm";
 import "react-toastify/dist/ReactToastify.css"; // Don't forget this!
 import { ToastContainer } from 'react-toastify';
+import Header from './layout/Header';
 
 function App() {
   const [mode, setMode] = useState("Spotify");
@@ -34,19 +35,9 @@ function App() {
   return (
     <div className="py-4">
       <ToastContainer aria-label={undefined} position="bottom-right" autoClose={3000} theme="dark" />
-      <div className="p-4">
-        <h1 className="text-4xl font-bold">Share your favourite contents with my friends!</h1>
-        <p>My 600+ friends can see your favourite music or video! Let's share it with them!</p>
-      </div>
-
+      <Header mode={mode} setMode={setMode} />
       <div className="container mx-auto relative flex flex-col justify-center items-center w-full">
-        <div className="w-full">
-          {mode == "Spotify" ? <SpotifySearch /> : <YouTubeSearch />}
-          <div className="flex space-x-4 py-4 pb-8 justify-start">
-            <ModeSelect mode="Spotify" isModeOn={mode == "Spotify"} onMode={setMode} />
-            <ModeSelect mode="YouTube" isModeOn={mode == "YouTube"} onMode={setMode} />
-          </div>
-        </div>
+        
         <div className="flex overflow-auto">
           <PlayList contents={addedContents && addedContents} setPlayContent={playerHandler} />
 
