@@ -36,6 +36,7 @@ export const organizeContentByDate = (rawItems: StoreContentType[]): AddedConten
         url: item.url,
         image: item.image || "",
         comments: item.comments.reverse(),
+        user: item.user || "",
       });
 
       return acc;

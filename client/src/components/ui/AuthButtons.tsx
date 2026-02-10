@@ -20,7 +20,7 @@ const AuthButtons = () => {
     <>
       {!user ? (
         <button
-          className="font-extrabold hover:text-lime-500 transition-all duration-200 cursor-pointer"
+          className="font-extrabold hover:text-yellow-300 transition-all duration-200 cursor-pointer"
           onClick={() => {
             signIn();
           }}
@@ -29,7 +29,7 @@ const AuthButtons = () => {
         </button>
       ) : (
         <button
-          className="font-extrabold hover:text-lime-500 transition-all duration-200 cursor-pointer"
+          className="font-extrabold hover:text-yellow-300 transition-all duration-200 cursor-pointer"
           onClick={() => {
             signOut();
           }}

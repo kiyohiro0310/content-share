@@ -65,6 +65,7 @@ export type StoreContentType = {
   comments: {date: string, comment: string}[];
   createdAt?: string;
   updatedAt?: string;
+  user: string;
 };
 
 export interface AddedCtxType {
@@ -78,3 +79,16 @@ export type PlayContentType = {
   url?: string;
   comments?: { date: string; comment: string }[];
 };
+
+export interface User {
+    id: string;
+    email: string;
+    emailVerified: boolean;
+    profilePictureUrl: string | null;
+    firstName: string | null;
+    lastName: string | null;
+    lastSignInAt: string | null;
+    externalId: string | undefined;
+    createdAt: string;
+    updatedAt: string;
+}

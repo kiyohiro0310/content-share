@@ -9,9 +9,9 @@ const Header = ({ mode, setMode }: { mode: string; setMode: Dispatch<SetStateAct
 
   return (
     <div className="container mx-auto py-4 flex items-center justify-between space-x-4">
-      <div className="w-6xl flex justify-around items-center space-x-4">
+      <div className="w-6xl flex  items-center space-x-4">
         <div>
-          <img src="/sl-logo.png" alt="Sound Link Logo" width={70} />
+          <img src="/sl-logo.png" alt="Sound Link Logo" width={120} />
         </div>
         <div className="w-2xl h-32 flex items-center  space-x-4">
           {mode == "Spotify" ? <SpotifySearch /> : <YouTubeSearch />}

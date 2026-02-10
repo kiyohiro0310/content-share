@@ -46,6 +46,12 @@ export class Content {
   })
   comments: { date: string; comment: string }[];
 
+  @Column('varchar', {
+    nullable: false,
+    default: 'This user',
+  })
+  user: string;
+
   @CreateDateColumn()
   createdAt: string;
 
