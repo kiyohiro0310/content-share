@@ -19,7 +19,7 @@ export class AppService {
     let contents = [] as Content[];
 
     try {
-      contents = await this.contentRepository.find();
+      contents = (await this.contentRepository.find()).reverse();
     } catch (error) {
       throw new RequestTimeoutException(error);
     }

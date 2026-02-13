@@ -22,6 +22,7 @@ const AuthButtons = () => {
         <button
           className="font-extrabold hover:text-yellow-300 transition-all duration-200 cursor-pointer"
           onClick={() => {
+            // Once user logged in, send id, name and email to backend to store them in database
             signIn();
           }}
         >
