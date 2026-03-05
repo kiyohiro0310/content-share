@@ -65,7 +65,7 @@ export type StoreContentType = {
   comments: {date: string, comment: string}[];
   createdAt?: string;
   updatedAt?: string;
-  user: string;
+  user?: string;
 };
 
 export interface AddedCtxType {

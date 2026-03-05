@@ -2,15 +2,11 @@ import { toast } from "react-toastify";
 import type { YouTubeContentType } from "../../../type";
 import { useAddedContent } from "../../hooks/useAddedContent";
 import { storeContent } from "../../utils/content";
-import { useAuth } from "@workos-inc/authkit-react";
 
 const YouTubeContentsList = ({ contents }: { contents: YouTubeContentType[] }) => {
   const { addedContents, setAddedContents } = useAddedContent();
-  const { user } = useAuth();
 
   const handleClick = async (id: string, name: string, img: string, url: string) => {
-    if (user == null) toast.error("You need to sign in to add song.");
-    else {
       const today = new Date().toLocaleDateString("en-AU");
       const dataExists = addedContents.some((content) => content.date === today);
       const newContent = {
@@ -39,10 +35,8 @@ const YouTubeContentsList = ({ contents }: { contents: YouTubeContentType[] }) =
         url: `https://www.youtube.com/watch?v=${id}`,
         type: "youtube",
         comments: [],
-        user: `${user.firstName} ${user.lastName}`,
       });
       toast.success(`Video: ${name} has been added into playlist.`);
-    }
   };
   return (
     <div className="flex flex-col absolute backdrop-blur-lg">

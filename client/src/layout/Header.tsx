@@ -2,7 +2,7 @@ import type { Dispatch, SetStateAction } from "react";
 import SpotifySearch from "../components/search/SpotifySearch";
 import YouTubeSearch from "../components/search/YouTubeSearch";
 import ModeSelect from "../components/ui/ModeSelect";
-import AuthButtons from '../components/ui/AuthButtons';
+// import AuthButtons from '../components/ui/AuthButtons';
 
 const Header = ({ mode, setMode }: { mode: string; setMode: Dispatch<SetStateAction<string>> }) => {
 
@@ -22,7 +22,7 @@ const Header = ({ mode, setMode }: { mode: string; setMode: Dispatch<SetStateAct
         </div>
       </div>
 
-      <AuthButtons />      
+      {/* <AuthButtons />       */}
     </div>
   );
 };

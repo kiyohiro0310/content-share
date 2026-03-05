@@ -2,15 +2,11 @@ import { toast } from "react-toastify";
 import type { SpotifyContentType } from "../../../type";
 import { useAddedContent } from "../../hooks/useAddedContent";
 import { storeContent } from "../../utils/content";
-import { useAuth } from "@workos-inc/authkit-react";
 
 const SpotifyContentsList = ({ contents }: { contents: SpotifyContentType[] }) => {
   const { addedContents, setAddedContents } = useAddedContent();
-  const { user } = useAuth();
 
   const handleClick = async (name: string, img: string, url: string) => {
-    if (user == null) toast.error("You need to sign in to add song.");
-    else {
       const today = new Date().toLocaleDateString("en-AU");
       const dataExists = addedContents.some((content) => content.date === today);
       const newContent = {
@@ -34,9 +30,8 @@ const SpotifyContentsList = ({ contents }: { contents: SpotifyContentType[] }) =
         setAddedContents(updatedContents);
       }
 
-      await storeContent({ name, image: img, url, type: "spotify", comments: [], user: `${user.firstName} ${user.lastName}`});
+      await storeContent({ name, image: img, url, type: "spotify", comments: []});
       toast.success(`Song: ${name} has been added into playlist.`);
-    }
   };
 
   return (
