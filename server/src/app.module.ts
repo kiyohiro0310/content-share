@@ -27,6 +27,7 @@ const ENV = process.env.NODE_ENV;
         port: configService.get('database.port'),
         username: configService.get('database.user'),
         database: configService.get('database.name'),
+        password: configService.get('database.password'),
       }),
     }),
     UserModule,
