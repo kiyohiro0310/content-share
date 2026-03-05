@@ -20,7 +20,7 @@ services:
     container_name: content-share-nestjs-api
     restart: always
     environment:
-      DATABASE_URL: postgresql://Kiyo:a1b2c3d4e5A@db:5442/content-share
+      DATABASE_URL: postgresql://Kiyo:a1b2c3d4e5A@db:5432/content-share
     depends_on:
       - db
   
