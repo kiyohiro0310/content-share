@@ -12,5 +12,6 @@ FROM nginx:latest
 RUN rm -rf /usr/share/nginx/html/*
 
 COPY --from=app_build /usr/src/app/client/dist /usr/share/nginx/html
+COPY ./client/nginx.default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80

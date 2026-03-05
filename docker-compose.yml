@@ -37,7 +37,7 @@ services:
       - 443:443
     volumes:
       # Map your local Nginx config so you can update it without rebuilding the image
-      - ./nginx.default.conf:/etc/nginx/conf.d/default.conf
+      - ./client/nginx.default.conf:/etc/nginx/conf.d/default.conf
       # Shared volumes for SSL certificates
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
