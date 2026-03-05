@@ -1,7 +1,17 @@
-FROM node:latest
+FROM node AS app_build
 
-WORKDIR /app /.
+WORKDIR /usr/src/app
 
-COPY . .
+COPY client/ ./client/
 
-RUN npm install && npm run build
+RUN cd client && npm install && npm run build
+
+
+FROM nginx:latest
+
+RUN rm -rf /usr/share/nginx/html/*
+
+COPY --from=app_build /usr/src/app/client/dist /usr/share/nginx/html
+COPY ./client/nginx.default.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80

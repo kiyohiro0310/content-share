@@ -1,7 +1,4 @@
-FROM nginx:alpine
+FROM nginx
 
-COPY nginx.default.conf /etc/nginx/conf.d/default
-
-COPY -r /app/client/dist/* /usr/share/nginx/html/
-
-CMD [ "systemctl restart nginx" ]
+RUN rm -rf /etc/nginx/conf.d/default.conf
+COPY nginx.default.conf /etc/nginx/conf.d/default.conf

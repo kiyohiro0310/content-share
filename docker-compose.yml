@@ -1,0 +1,39 @@
+
+services:
+  db:
+    image: postgres
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: Kiyo
+      POSTGRES_PASSWORD: a1b2c3d4e5A
+      POSTGRES_DB: content-share
+    
+    volumes:
+      - ./db/db_backup.sql:/docker-entrypoint-initdb.d/db_backup.sql
+      - postgres_data:/var/lib/postgresql
+  
+  server:
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    container_name: content-share-nestjs-api
+    restart: always
+    environment:
+      DATABASE_URL: postgresql://Kiyo:a1b2c3d4e5A@db:5442/content-share
+    depends_on:
+      - db
+  
+  client:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    container_name: content-share-client
+    restart: always
+    depends_on:
+      - server
+    ports:
+      - 80:80
+
+volumes:
+  postgres_data:
