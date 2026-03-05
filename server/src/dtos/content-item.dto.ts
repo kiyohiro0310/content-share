@@ -39,7 +39,7 @@ export class ContentItemDTO {
   @IsArray()
   comments: CommentDTO[];
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   user: string;
 }
