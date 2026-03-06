@@ -25,6 +25,3 @@ jobs:
             
             # Rebuild and restart only what changed
             docker compose up -d --build
-            
-            # Optional: Cleanup old unused images to save disk space
-            docker image prune -f

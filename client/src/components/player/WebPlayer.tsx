@@ -2,8 +2,8 @@ import ReactPlayer from "react-player";
 
 const WebPlayer = ({ url }: { url: string }) => {
   return (
-    <div>
-      <ReactPlayer src={url} width={500} height={300} autoPlay />
+    <div className='w-full flex justify-center'>
+      <ReactPlayer src={url} width={500} height={300}/>
     </div>
   );
 };

@@ -24,7 +24,7 @@ const YouTubeSearch = () => {
     <div className='w-full z-40'>
       <form className="flex space-x-2 items-center">
         <input
-          className="border-[0.5px] w-full h-10 rounded-md text-lg p-2 outline-none"
+          className="border-[0.5px] md:w-full h-10 rounded-md text-lg p-2 outline-none"
           type="text"
           onChange={handleSearch}
           value={input}

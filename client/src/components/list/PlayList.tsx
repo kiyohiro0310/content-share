@@ -17,11 +17,11 @@ const PlayList = ({
       {contents.map((content, i) => (
         <div key={i} className="py-4">
           <h1 className="font-bold text-lg py-2">{content.date}</h1>
-          <div className="">
+          <div className="grid grid-cols-2 gap-4">
             {content.items.map((item, j) => (
               <div
                 key={j}
-                className="flex items-center space-x-3 w-full px-4 py-2 text-sm border-b-[0.5px] border-b-gray-400 dark:border-b-white cursor-pointer hover:text-green-300 transition duration-200"
+                className="h-16 flex items-start overflow-clip space-x-3 w-full px-4 text-sm border-b-[0.5px] border-b-gray-400 dark:border-b-white cursor-pointer hover:text-green-300 transition duration-200"
                 onClick={() => {
                   setPlayContent({
                     id: item.id,

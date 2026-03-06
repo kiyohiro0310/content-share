@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PlayList from "./components/list/PlayList";
 import { useAddedContent } from "./hooks/useAddedContent";
 import type { PlayContentType } from "../type";
-import WebPlayer from "./components/player/WebPlayer";
-import SpotifyPlayer from "./components/player/SpotifyPlayer";
-import CommentForm from "./components/CommentForm";
 import "react-toastify/dist/ReactToastify.css"; // Don't forget this!
-import { ToastContainer } from 'react-toastify';
-import Header from './layout/Header';
+import { ToastContainer } from "react-toastify";
+import Header from "./layout/Header";
+import PlayerSection from "./components/player/PlayerSection";
+import { motion, AnimatePresence } from "framer-motion";
+import MobilePlayerSection from "./components/player/MobilePlayerSection";
 
 function App() {
   const [mode, setMode] = useState("Spotify");
@@ -29,45 +29,40 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    if (!playContent && addedContents && addedContents.length > 0) {
+      const firstItem = addedContents[0].items[0];
+      setPlayContent(firstItem);
+      setPlayerOpen(true);
+    }
+  }, [addedContents, playContent]);
+
   return (
-    <div className="py-4">
+    <div className="py-4 overflow-x-hidden">
       <ToastContainer aria-label={undefined} position="bottom-right" autoClose={3000} theme="dark" />
       <Header mode={mode} setMode={setMode} />
-      <div className="container mx-auto relative flex flex-col justify-center items-center w-full">
-        
+      <div className="relative flex flex-col justify-center items-center w-full">
         <div className="flex overflow-auto">
           <PlayList contents={addedContents && addedContents} setPlayContent={playerHandler} />
+          <AnimatePresence>
+            {playContent && playerOpen && (
+              <motion.div
+                initial={{ y: "100%" }} // Start off-screen to the left
+                animate={{ y: 0 }} // Slide into position
+                exit={{ y: "100%" }} // Slide back out to the left
+                transition={{ type: "tween", damping: 25, stiffness: 200 }}
+                className="fixed inset-0 z-50 flex md:relative md:inset-auto md:z-0"
+              >
+                <PlayerSection playContent={playContent} handleNewComment={handleNewComment} />
 
-          {playContent && playerOpen && (
-            <div className="w-xl h-xl">
-              <div className='flex justify-center'>
-                {playContent.type == "spotify" ? (
-                  <SpotifyPlayer url={playContent.url!} />
-                ) : (
-                  <WebPlayer url={playContent.url!} />
-                )}
-              </div>
-
-              <div className="w-full h-xl py-4">
-                <h1 className="text-2xl py-2 font-bold">Comments</h1>
-                <CommentForm content={playContent} onCommentAdded={handleNewComment} />
-                <div className="h-fit py-4">
-                  {playContent.comments && playContent.comments.length > 0 ? (
-                    <div className="space-y-4">
-                      {playContent.comments.map((c) => (
-                        <div className="flex justify-between items-end">
-                          <p className='w-64'>{c.comment}</p>
-                          <span className="text-sm">{c.date}</span>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    "No Comments"
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
+                <MobilePlayerSection
+                  playContent={playContent}
+                  handleNewComment={handleNewComment}
+                  setPlayerOpen={setPlayerOpen}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>

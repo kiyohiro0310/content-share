@@ -6,7 +6,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const ENV = process.env.NODE_ENV;
-  console.log(ENV);
 
   if (ENV !== 'development') {
     app.setGlobalPrefix('api');

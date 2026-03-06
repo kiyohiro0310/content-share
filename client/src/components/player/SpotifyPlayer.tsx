@@ -4,7 +4,7 @@ const SpotifyPlayer = ({ url }: { url: string }) => {
   return (
     <div>
       <iframe
-        className="rounded-xl"
+        className="rounded-2xl w-screen md:w-full"
         src={embedUrl}
         width={500}
         height={352}
