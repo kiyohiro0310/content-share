@@ -7,44 +7,44 @@ const YouTubeContentsList = ({ contents }: { contents: YouTubeContentType[] }) =
   const { addedContents, setAddedContents } = useAddedContent();
 
   const handleClick = async (id: string, name: string, img: string, url: string) => {
-      const today = new Date().toLocaleDateString("en-AU");
-      const dataExists = addedContents.some((content) => content.date === today);
-      const newContent = {
-        date: today,
-        items: [{ id, name, image: img, url, type: "youtube" }],
-      };
-      if (!dataExists) setAddedContents([...addedContents, newContent]);
-      else {
-        const updatedContents = [
-          ...addedContents.map((content) => {
-            if (content.date === today) {
-              return {
-                ...content,
-                items: [...content.items, { id, name, image: img, url, type: "youtube" }],
-              };
-            } else {
-              return content;
-            }
-          }),
-        ];
-        setAddedContents(updatedContents);
-      }
-      await storeContent({
-        name,
-        image: img,
-        url: `https://www.youtube.com/watch?v=${id}`,
-        type: "youtube",
-        comments: [],
-      });
-      toast.success(`Video: ${name} has been added into playlist.`);
+    const today = new Date().toLocaleDateString("en-AU");
+    const dataExists = addedContents.some((content) => content.date === today);
+    const newContent = {
+      date: today,
+      items: [{ id, name, image: img, url, type: "youtube" }],
+    };
+    if (!dataExists) setAddedContents([...addedContents, newContent]);
+    else {
+      const updatedContents = [
+        ...addedContents.map((content) => {
+          if (content.date === today) {
+            return {
+              ...content,
+              items: [...content.items, { id, name, image: img, url, type: "youtube" }],
+            };
+          } else {
+            return content;
+          }
+        }),
+      ];
+      setAddedContents(updatedContents);
+    }
+    await storeContent({
+      name,
+      image: img,
+      url: `https://www.youtube.com/watch?v=${id}`,
+      type: "youtube",
+      comments: [],
+    });
+    toast.success(`Video: ${name} has been added into playlist.`);
   };
   return (
-    <div className="flex flex-col absolute backdrop-blur-lg">
+    <div className="w-full lg:w-5xl flex flex-col absolute left-0 md:left-34 backdrop-blur-lg">
       {contents.map((item, i) => (
         <div key={i}>
           {item && item.id.videoId && (
             <div className="">
-              <div className="cursor-pointer border-b-[0.5px] border-b-gray-400 dark:border-b-white">
+              <div className="p-2 cursor-pointer border-b-[0.5px] border-b-gray-400 dark:border-b-white">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <img

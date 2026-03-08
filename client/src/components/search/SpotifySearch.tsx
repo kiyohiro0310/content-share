@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent } from "react";
 import { useSpotifySearch } from "../../hooks/useSpotifySearch";
-import SpotifyContentsList from "../list/SpotifyContentsList";
 import { RxCross2 } from "react-icons/rx";
+import SpotifyContentsList from '../list/SpotifyContentsList';
 
 
 const SpotifySearch = () => {
@@ -39,7 +39,7 @@ const SpotifySearch = () => {
           </div>
         )}
       </form>
-      <SpotifyContentsList contents={contents} />
+      <SpotifyContentsList contents={contents} onClick={handleClose} />
     </div>
   );
 };
