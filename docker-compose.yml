@@ -47,6 +47,7 @@ services:
   certbot:
       image: certbot/certbot
       container_name: certbot
+      network_mode: "host"
       volumes:
         - certbot-etc:/etc/letsencrypt
         - certbot-var:/var/lib/letsencrypt
