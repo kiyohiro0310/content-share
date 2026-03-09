@@ -22,8 +22,6 @@ jobs:
           script: |
             cd /home/ubuntu/content-share
             git pull origin main
-
-            docker compose down
             
             # Rebuild and restart only what changed
             docker compose up -d --build

@@ -5,8 +5,8 @@ import ModeSelect from "../components/ui/ModeSelect";
 
 const Header = ({ mode, setMode }: { mode: string; setMode: Dispatch<SetStateAction<string>> }) => {
   return (
-    <div className="w-full py-4 flex items-center justify-between space-x-4">
-      <div className="md:w-6xl flex items-center space-x-4">
+    <div className="md:container md:mx-auto w-full py-4 flex items-center justify-between space-x-4">
+      <div className="flex items-center space-x-4">
         <div>
           <img src="/sl-logo.png" alt="Sound Link Logo" width={120} />
         </div>
