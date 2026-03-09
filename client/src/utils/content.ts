@@ -12,7 +12,10 @@ export async function storeContent(content: StoreContentType) {
 }
 
 export async function postComment(post: {id: string, date: string; comment: string}) {
-  const response = await axios.post(`${REQ_URL}/${post.id}`, post);
+  let response = null;
+  if (REQ_URL[REQ_URL.length - 1] === "/") response = await axios.post(`${REQ_URL}${post.id}`, post);
+  else response = await axios.post(`${REQ_URL}/${post.id}`, post);
+
   if (response.status != 200) return response.statusText;
 
   return true;
