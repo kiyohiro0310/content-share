@@ -1,4 +1,4 @@
-import { useState, type FormEvent, type SyntheticEvent } from "react";
+import { useState, type SyntheticEvent } from "react";
 import { postComment } from "../utils/content";
 import { dateForComment } from "../utils/date";
 import type { PlayContentType } from "../../type";
