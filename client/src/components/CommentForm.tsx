@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, type SyntheticEvent } from "react";
 import { postComment } from "../utils/content";
 import { dateForComment } from "../utils/date";
 import type { PlayContentType } from "../../type";
@@ -13,10 +13,10 @@ const CommentForm = ({
 }) => {
   const [comment, setComment] = useState("");
 
-  const changeHandler = (e: FormEvent<HTMLInputElement>) => {
+  const changeHandler = (e: SyntheticEvent<HTMLInputElement>) => {
     setComment(e.currentTarget.value);
   };
-  async function submitHandler(e: FormEvent<HTMLFormElement>) {
+  async function submitHandler(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     const date = dateForComment;
     const res = await postComment({ id: content.id!, date, comment });
