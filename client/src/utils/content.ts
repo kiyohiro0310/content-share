@@ -40,6 +40,7 @@ export const organizeContentByDate = (rawItems: StoreContentType[]): AddedConten
         image: item.image || "",
         comments: item.comments.reverse(),
         user: item.user || "",
+        artists: item.artists || [],
       });
 
       return acc;

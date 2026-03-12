@@ -40,6 +40,10 @@ export class ContentItemDTO {
   comments: CommentDTO[];
 
   @IsOptional()
+  @IsArray()
+  artists: { name: string }[];
+
+  @IsOptional()
   @IsString()
   user: string;
 }

@@ -21,7 +21,7 @@ const PlayList = ({
             {content.items.map((item, j) => (
               <div
                 key={j}
-                className="h-16 flex items-start overflow-clip space-x-3 w-full px-4 text-sm border-b-[0.5px] border-b-gray-400 dark:border-b-white cursor-pointer hover:text-green-300 transition duration-200"
+                className="h-18 flex items-start overflow-clip space-x-3 w-full px-4 text-sm border-b-[0.5px] border-b-gray-400 dark:border-b-white cursor-pointer hover:text-green-300 transition duration-200"
                 onClick={() => {
                   setPlayContent({
                     id: item.id,
@@ -31,9 +31,17 @@ const PlayList = ({
                   });
                 }}
               >
-                <img className="w-12 h-12" src={item.image} alt={item.name} />
+                <img className="w-15 h-15" src={item.image} alt={item.name} />
                 <div className="space-y-1">
                   <p>{item.name}</p>
+                  {(item.artists && item.artists.length > 0) && (
+                    <p className='text-xs'>
+                      {item.artists.map((artist: {name: string}, index: number) => (
+                        <span key={index}>{artist.name}</span>
+                      ))}
+                    </p>
+                  )}
+
                   <p className="text-xs">{item.type.charAt(0).toUpperCase() + item.type.slice(1)}</p>
                 </div>
               </div>

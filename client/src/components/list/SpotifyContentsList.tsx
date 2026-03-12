@@ -6,12 +6,12 @@ import { storeContent } from "../../utils/content";
 const SpotifyContentsList = ({ contents, onClick }: { contents: SpotifyContentType[]; onClick: () => void }) => {
   const { addedContents, setAddedContents } = useAddedContent();
 
-  const handleClick = async (name: string, img: string, url: string) => {
+  const handleClick = async (name: string, img: string, url: string, artists: {name: string}[]) => {
     const today = new Date().toLocaleDateString("en-AU");
     const dataExists = addedContents.some((content) => content.date === today);
     const newContent = {
       date: today,
-      items: [{ name, image: img, url, type: "spotify" }],
+      items: [{ name, image: img, url, artists, type: "spotify" }],
     };
     if (!dataExists) setAddedContents([...addedContents, newContent]);
     else {
@@ -30,7 +30,7 @@ const SpotifyContentsList = ({ contents, onClick }: { contents: SpotifyContentTy
       setAddedContents(updatedContents);
     }
 
-    await storeContent({ name, image: img, url, type: "spotify", comments: [] });
+    await storeContent({ name, image: img, url, artists, type: "spotify", comments: [] });
     toast.success(`Song: ${name} has been added into playlist.`);
     onClick();
   };
@@ -64,7 +64,7 @@ const SpotifyContentsList = ({ contents, onClick }: { contents: SpotifyContentTy
                   <div className="flex items-center justify-center space-x-8">
                     <button
                       className="font-bold cursor-pointer hover:text-yellow-300 transition-all duration-200"
-                      onClick={() => handleClick(item.name, item.album.images[0].url, item.external_urls.spotify)}
+                      onClick={() => handleClick(item.name, item.album.images[0].url, item.external_urls.spotify, item.artists)}
                     >
                       Add to Playlist
                     </button>
