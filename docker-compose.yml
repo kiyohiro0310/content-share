@@ -30,6 +30,15 @@ services:
       dockerfile: ./client/Dockerfile
     container_name: content-share-client
     restart: always
+    environment:
+      VITE_GOOGLE_API_KEY: AIzaSyCzZoAdvTdhUnvWE7irIgqtZeHv3tAil1c
+      VITE_SUPABASE_PUBLISHABLE_KEY: sb_publishable_EmoZkayROexmDb1uk17FgA_qqNnb52w
+      VITE_SUPABASE_SECRET_KEY: sb_secret_1TmiOcMoeCFvESiyvfKKmw_r1TPmrt_
+      VITE_SPOTIFY_CLIENT_ID: f1759d9bdfed4120b3cce6f3556c9b3d
+      VITE_SPOTIFY_CLIENT_SECRET: 87f0a2c752c145d6861c7125d7c5479c
+      # VITE_BACKEND_SERVER_URL="https://sound-link.nk-1310.online/api/"
+      VITE_BACKEND_SERVER_URL: "/api"
+      VITE_WORKOS_CLIENT_ID: client_01K3Y3STRS1G027R10A32HWEJG
     depends_on:
       - server
       - db
